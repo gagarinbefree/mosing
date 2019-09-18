@@ -1,9 +1,8 @@
-import { connect } from "react-redux";
-import App, { IPlace, IWorldMapState } from "../components/WorldMap";
+import { connect } from 'react-redux';
 import * as Actions from '../actions/WorldMap';
-import WorldMap, {IWorldMapProps, IWordMapPayload} from "../components/WorldMap";
-import { Dispatch, AnyAction } from "redux";
-import { ThunkDispatch } from "redux-thunk";
+import WorldMap, { IWorldMapProps, IWordMapPayload, IPlace } from '../components/WorldMap';
+import { Dispatch, AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 const mapStateToProps = (state: any): IWordMapPayload => {
 	return state.WorldMapReducer.payload;

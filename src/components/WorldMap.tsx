@@ -1,7 +1,8 @@
 import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { isExistsTypeAnnotation } from '@babel/types';
+import Select from 'react-select';
+import '../App.css';
 
 export interface IWorldMap {
 	lat: number,
@@ -10,9 +11,8 @@ export interface IWorldMap {
 }
 
 export interface IPlace {
-	name: string,
-	long: number,
-	zoom: number,	
+	label: string,
+	value: string,	
 }
 
 export interface ITravel {
@@ -20,8 +20,8 @@ export interface ITravel {
 }
 
 export interface IRoute {
-	name: string,
-	places: IPlace[]
+	label: string,
+	options: IPlace[]
 }
 
 export interface IWorldMapState {
@@ -46,12 +46,20 @@ class WorldMap extends React.Component<IWorldMapProps & IWordMapPayload> {
 		super(props);        
 	}
 
+	async componentDidMount() {
+		await this.props.getTravelAsync();
+	}
+
 	render() {
-		return <Map center={[this.props.map.lat, this.props.map.long]} zoom={this.props.map.zoom} style={{ width: '100%', height: '100vh' }}>
-			<TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
-		</Map>
+		return  <React.Fragment>
+			<Map center={[this.props.map.lat, this.props.map.long]} zoom={this.props.map.zoom} style={{ width: '100%', height: '100vh' }}>
+				<TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+			</Map>
+			<div className="select">
+				<Select options={this.props.travel ? this.props.travel.routes : undefined} />
+			</div>
+		</React.Fragment>
 	}
 }
 
