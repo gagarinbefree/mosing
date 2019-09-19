@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/mosing/static/css/main.f3c74ef8.chunk.css",
+    "main.js": "/mosing/static/js/main.0c6b9f27.chunk.js",
+    "main.js.map": "/mosing/static/js/main.0c6b9f27.chunk.js.map",
+    "runtime~main.js": "/mosing/static/js/runtime~main.ba5ea759.js",
+    "runtime~main.js.map": "/mosing/static/js/runtime~main.ba5ea759.js.map",
+    "static/css/2.098bc035.chunk.css": "/mosing/static/css/2.098bc035.chunk.css",
+    "static/js/2.45e50282.chunk.js": "/mosing/static/js/2.45e50282.chunk.js",
+    "static/js/2.45e50282.chunk.js.map": "/mosing/static/js/2.45e50282.chunk.js.map",
+    "index.html": "/mosing/index.html",
+    "precache-manifest.6e17cbf97e40aeb72ed061350a4c955f.js": "/mosing/precache-manifest.6e17cbf97e40aeb72ed061350a4c955f.js",
+    "service-worker.js": "/mosing/service-worker.js",
+    "static/css/2.098bc035.chunk.css.map": "/mosing/static/css/2.098bc035.chunk.css.map",
+    "static/css/main.f3c74ef8.chunk.css.map": "/mosing/static/css/main.f3c74ef8.chunk.css.map"
+  }
+}
