@@ -1,5 +1,6 @@
 import produce from 'immer';
 import { IWorldMapState } from '../components/WorldMap';
+import { AnyAction } from 'redux';
 
 const initalState: IWorldMapState = {
     type: '',
@@ -9,13 +10,13 @@ const initalState: IWorldMapState = {
 			long: -0.09,
 			zoom: 13
 		},
-		marker: null,
-        travel: null,
+		travel: null,
+		marker: null,        
         error: ''
     }
 }
 
-const WorldMapReducer = (state = initalState, action: any) => {
+const WorldMapReducer = (state: IWorldMapState = initalState, action: AnyAction) => {
     return produce(state, (draft) => {
         if (action.type === 'WORLD_MAP_GET_TRAVEL') {
             draft.payload.travel = action.travel;

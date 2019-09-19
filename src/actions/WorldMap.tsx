@@ -9,7 +9,7 @@ interface IGetTravelAction extends Action {
 }
 
 export interface ISetMarkerAction extends Action {
-	place: IPlace
+	marker: IPlace
 }
 
 export const getTravel = (travel: ITravel | null, error: string): IGetTravelAction => ({
@@ -18,9 +18,9 @@ export const getTravel = (travel: ITravel | null, error: string): IGetTravelActi
     error
 })
 
-export const setMarker = (place: IPlace): ISetMarkerAction => ({
+export const setMarker = (marker: IPlace): ISetMarkerAction => ({
     type: 'WORLD_MAP_SET_MARKER',
-    place
+    marker
 })
 
 export const getTravelAsync = () => {

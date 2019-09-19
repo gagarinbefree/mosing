@@ -1,7 +1,7 @@
 .select {
 	position: absolute;
-    top: 20px;
-    left: 88.5%;
+	top: 19px;    
+	left: 60px;
     z-index: 1000;
-	width: 200px;
+	width: 200px;	
 }

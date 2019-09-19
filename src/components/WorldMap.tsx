@@ -3,6 +3,11 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Select from 'react-select';
 import '../App.css';
+import { ValueType } from 'react-select/src/types';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 export interface IWorldMap {
 	lat: number,
@@ -38,7 +43,7 @@ export interface IWordMapPayload {
 
 export interface IWorldMapProps {
 	getTravelAsync(): Promise<void>;
-	setMarker(place: IPlace): void;
+	setMarker(place: IPlace | null): void;
 }
 
 class WorldMap extends React.Component<IWorldMapProps & IWordMapPayload> {
@@ -47,17 +52,42 @@ class WorldMap extends React.Component<IWorldMapProps & IWordMapPayload> {
 	}
 
 	async componentDidMount() {
+		let DefaultIcon = L.icon({
+			iconUrl: icon,
+			shadowUrl: iconShadow
+		});
+
+		L.Marker.prototype.options.icon = DefaultIcon;
+	
 		await this.props.getTravelAsync();
 	}
 
+	handleChange = (e: ValueType<IPlace>) => {		
+		this.props.setMarker(e as IPlace)
+	}
+
 	render() {
-		return  <React.Fragment>
-			<Map center={[this.props.map.lat, this.props.map.long]} zoom={this.props.map.zoom} style={{ width: '100%', height: '100vh' }}>
+		let position: [number, number] = [this.props.map.lat, this.props.map.long];
+		if (this.props.marker)
+		{
+			let str: string[] = this.props.marker.value.split(';');
+			position = [parseFloat(str[0]), parseFloat(str[1])];
+		}
+
+		return <React.Fragment>
+			<Map center={position} zoom={this.props.map.zoom} style={{ width: '100%', height: '100vh' }}>
 				<TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>				
+				{this.props.marker && <Marker position={position}>
+					<Popup>{this.props.marker.label}</Popup>
+				</Marker>}
 			</Map>
 			<div className="select">
-				<Select options={this.props.travel ? this.props.travel.routes : undefined} />
+				<Select options={this.props.travel ? this.props.travel.routes : undefined} 
+					onChange={this.handleChange}
+					isClearable={true
+				}/>
 			</div>
 		</React.Fragment>
 	}
