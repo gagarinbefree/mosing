@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,QACC,iBAAkB,CAClB,QAAS,CACT,SAAU,CACP,YAAa,CAChB,WACD","file":"main.f3c74ef8.chunk.css","sourcesContent":[".select {\n\tposition: absolute;\n\ttop: 19px;    \n\tleft: 60px;\n    z-index: 1000;\n\twidth: 200px;\t\n}"]}
