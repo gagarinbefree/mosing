@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8edcd3901c7405b9232a72bb57f4e3db",
+    "revision": "341cc3dbd34eea9d3be48b6885d25b45",
     "url": "/mosing/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mosing/static/css/2.098bc035.chunk.css"
   },
   {
-    "revision": "ad7478c3962e68a3df71",
-    "url": "/mosing/static/css/main.bbc13a4b.chunk.css"
+    "revision": "e7d2c3e0d81ca42045db",
+    "url": "/mosing/static/css/main.caa31728.chunk.css"
   },
   {
     "revision": "9bcc08b44c4a9fb3961e",
     "url": "/mosing/static/js/2.eda8c68c.chunk.js"
   },
   {
-    "revision": "ad7478c3962e68a3df71",
+    "revision": "e7d2c3e0d81ca42045db",
     "url": "/mosing/static/js/main.d8dcb9c1.chunk.js"
   },
   {
