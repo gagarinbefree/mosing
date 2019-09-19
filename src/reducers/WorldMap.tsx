@@ -8,7 +8,7 @@ const initalState: IWorldMapState = {
 		map: {
 			lat: 51.505,
 			long: -0.09,
-			zoom: 13
+			zoom: 12
 		},
 		travel: null,
 		marker: null,        
