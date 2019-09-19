@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mosing/precache-manifest.df85fbb2e72941779b823531a4f15a7f.js"
+  "/mosing/precache-manifest.01a33071254a241066cd86d8cf9f4748.js"
 );
 
 self.addEventListener('message', (event) => {
