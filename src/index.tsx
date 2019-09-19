@@ -6,6 +6,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/Index';
 import * as serviceWorker from './serviceWorker';
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import './index.css';
 
 const configureStore = (initialState: any) => createStore(rootReducer, initialState, applyMiddleware(thunk));
 
@@ -18,4 +22,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.register();
+serviceWorker.unregister();
+
+L.Marker.prototype.options.icon = L.icon({
+	iconUrl: icon,
+	shadowUrl: iconShadow
+});

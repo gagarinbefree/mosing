@@ -2,12 +2,8 @@ import React from 'react'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import Select from 'react-select';
-import '../App.css';
 import { ValueType } from 'react-select/src/types';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 export interface IWorldMap {
 	lat: number,
@@ -52,13 +48,6 @@ class WorldMap extends React.Component<IWorldMapProps & IWordMapPayload> {
 	}
 
 	async componentDidMount() {
-		let DefaultIcon = L.icon({
-			iconUrl: icon,
-			shadowUrl: iconShadow
-		});
-
-		L.Marker.prototype.options.icon = DefaultIcon;
-	
 		await this.props.getTravelAsync();
 	}
 
@@ -80,7 +69,7 @@ class WorldMap extends React.Component<IWorldMapProps & IWordMapPayload> {
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>				
 				{this.props.marker && <Marker position={position}>
-					<Popup>{this.props.marker.label}</Popup>
+					<Popup><p>{this.props.marker.label}</p></Popup>
 				</Marker>}
 			</Map>
 			<div className="select">
